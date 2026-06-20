@@ -43,6 +43,24 @@ class Tables {
       console.log("Error Creating Friends Table: ", error);
     }
   };
+
+  // ---- Messages Table ----
+
+  static messagesTable = async () => {
+    try {
+      await db.execute(`
+        CREATE TABLE IF NOT EXISTS messages (
+          id INT AUTO_INCREMENT PRIMARY KEY,
+          sender_id INT NOT NULL,
+          receiver_id INT NOT NULL,
+          messages JSON NOT NULL,
+        )
+      `);
+      console.log("Messages table verified/created successfully.");
+    } catch (error) {
+      console.log("Error Creating Messages Table: ", error);
+    }
+  };
 }
 
 export default Tables;
