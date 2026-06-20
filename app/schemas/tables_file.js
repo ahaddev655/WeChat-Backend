@@ -53,7 +53,7 @@ class Tables {
           id INT AUTO_INCREMENT PRIMARY KEY,
           sender_id INT NOT NULL,
           receiver_id INT NOT NULL,
-          messages JSON NOT NULL,
+          messages JSON NOT NULL
         )
       `);
       console.log("Messages table verified/created successfully.");
