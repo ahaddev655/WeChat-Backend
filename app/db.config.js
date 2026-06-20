@@ -1,8 +1,10 @@
+import "dotenv/config";
+
 const dbConfig = {
-  host: "127.0.0.1",
-  user: "usr_db01",
-  password: "*3104944Tony",
-  database: "wechat_db",
+  host: process.env.DB_HOST,
+  user: process.env.DB_USER,
+  password: process.env.DB_PASSWORD,
+  database: process.env.DB_NAME,
 };
 
 export default dbConfig;
