@@ -53,9 +53,11 @@ class Tables {
           id INT AUTO_INCREMENT PRIMARY KEY,
           sender_id INT NOT NULL,
           receiver_id INT NOT NULL,
-          messages JSON NOT NULL
-        )
-      `);
+          messages JSON NOT NULL,
+          UNIQUE (sender_id, receiver_id)
+          )
+          `);
+      // unique_pair UNIQUE (sender_id, receiver_id)
       console.log("Messages table verified/created successfully.");
     } catch (error) {
       console.log("Error Creating Messages Table: ", error);

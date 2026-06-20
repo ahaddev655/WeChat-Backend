@@ -6,7 +6,7 @@ class FriendsModals {
     const query = "SELECT friends_list FROM friends WHERE user_id = ?";
     const values = [id];
 
-    const [rows] = await db.execute(query, values); 
+    const [rows] = await db.execute(query, values);
 
     return rows;
   };
