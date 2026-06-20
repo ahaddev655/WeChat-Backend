@@ -7,7 +7,14 @@ class authModals {
     ]);
     return user[0];
   };
-  static create_user = async ({ fname, lname, email, password, token, uid }) => {
+  static create_user = async ({
+    fname,
+    lname,
+    email,
+    password,
+    token,
+    uid,
+  }) => {
     const query =
       "INSERT INTO users (uid, firstName, lastName, email, password, token) VALUES (?, ?, ?, ?, ?, ?)";
     const values = [uid, fname, lname, email, password, token];

@@ -1,7 +1,8 @@
 import db from "../database/db.js";
 
-// ---- Users Table ----
 class Tables {
+  // ---- Users Table ----
+
   static usersTable = async () => {
     try {
       await db.execute(`
@@ -22,6 +23,24 @@ class Tables {
       console.log("Users table verified/created successfully.");
     } catch (error) {
       console.log("Error Creating User Table: ", error);
+    }
+  };
+
+  // ---- Friends Table ----
+
+  static friendsTable = async () => {
+    try {
+      await db.execute(`
+        CREATE TABLE IF NOT EXISTS friends (
+          id INT AUTO_INCREMENT PRIMARY KEY,
+          user_id INT NOT NULL UNIQUE,
+          friends_list JSON DEFAULT NULL,
+          FOREIGN KEY (user_id) REFERENCES users(id) ON DELETE CASCADE
+        )
+      `);
+      console.log("Friends table verified/created successfully.");
+    } catch (error) {
+      console.log("Error Creating Friends Table: ", error);
     }
   };
 }

@@ -17,15 +17,15 @@ router.get("/", (req, res) => {
 });
 
 // ---- Register Route ----
-router.post("/register", AuthControllers.register)
+router.post("/register", AuthControllers.register);
 
 // ---- Login Route ----
-router.post("/login", AuthControllers.login)
+router.post("/login", AuthControllers.login);
 
 // ---- Google Register Route ----
-router.post("/google-register", AuthControllers.google_register)
+router.post("/google-register", AuthControllers.google_register);
 
 // ---- Google Login Route ----
-router.post("/google-login", AuthControllers.google_login)
+router.post("/google-login", AuthControllers.google_login);
 
 export default router;

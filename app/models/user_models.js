@@ -42,7 +42,7 @@ class UserModals {
     const [rows] = await db.execute(query, values);
 
     return rows;
-  }
+  };
 }
 
 export default UserModals;

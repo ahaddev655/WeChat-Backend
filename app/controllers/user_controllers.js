@@ -89,7 +89,7 @@ class UserControllers {
   };
 
   // ---- Fetch all users ----
-  
+
   static fetchUsers = async (req, res) => {
     const { id } = req.params;
 

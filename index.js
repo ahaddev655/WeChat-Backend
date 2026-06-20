@@ -5,6 +5,8 @@ dotenv.config();
 import Tables from "./app/schemas/tables_file.js";
 import AuthRoutes from "./app/routes/auth_routes.js";
 import UserRoutes from "./app/routes/user_routes.js";
+import FriendsRoutes from "./app/routes/friends_route.js";
+import FriendsController from "./app/controllers/friends_controller.js";
 import cors from "cors";
 
 // ---- Configure App ----
@@ -16,10 +18,12 @@ app.use(express.json());
 
 // ---- Tables Calling ----
 Tables.usersTable();
+Tables.friendsTable();
 
 // ---- Configure Routes ----
 app.use("/api/authentication", AuthRoutes);
 app.use("/api/user", UserRoutes);
+app.use("/api/friends", FriendsRoutes);
 
 // ---- Port Defining ----
 const port = process.env.PORT || 5000;
