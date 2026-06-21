@@ -1,4 +1,4 @@
-// import "dotenv/config";
+import "dotenv/config";
 
 const dbConfig = {
   host: process.env.DB_HOST || "127.0.0.1",

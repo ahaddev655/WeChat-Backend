@@ -25,7 +25,7 @@ class MessageModels {
     const query =
       "INSERT INTO messages (sender_id, receiver_id, messages) VALUES (?, ?, ?) ON DUPLICATE KEY UPDATE messages = VALUES(messages)";
 
-    const values = [user_id_1, user_id_2, messages];
+    const values = [user_id_1, user_id_2, JSON.stringify(messages)];
 
     const [rows] = await db.execute(query, values);
 
