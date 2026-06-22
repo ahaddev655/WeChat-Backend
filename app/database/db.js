@@ -5,6 +5,7 @@ const pool = sql.createPool({
   user: dbConfig.user,
   password: dbConfig.password,
   database: dbConfig.database,
+  connectionLimit: 10,
 });
 
 const db = pool.promise();
