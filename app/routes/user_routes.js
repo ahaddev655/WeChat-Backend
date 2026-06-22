@@ -13,7 +13,7 @@ router.put("/status-true/:id", UserControllers.userActive);
 
 // ---- Set status False ----
 
-router.put("/status-false/:id", UserControllers.userInactive);
+router.post("/status-false/:id", UserControllers.userInactive);
 
 // ---- Fetch all users ----
 

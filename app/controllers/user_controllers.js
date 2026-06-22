@@ -67,20 +67,20 @@ class UserControllers {
 
     try {
       // ---- Find the user ----
-      const user = UserModals.fetch_user_by_id(id);
+      const user = await UserModals.fetch_user_by_id(id);
 
       // ---- Validations ----
       if (!user) {
-        res.status(404).json({ success: false, error: "User Not Found" });
+        return res.status(404).json({ success: false, error: "User Not Found" });
       }
 
       // ---- Status Change ----
       await UserModals.set_status_false(id);
 
       // ---- Positive Response ----
-      res.status(200).json({ success: true, message: "User set to inactive" });
+      return res.status(200).json({ success: true, message: "User set to inactive" });
     } catch (error) {
-      res.status(500).json({
+      return res.status(500).json({
         success: false,
         error: "Internal Server Error",
         details: error.toString(),
@@ -99,17 +99,17 @@ class UserControllers {
 
       // ---- Validations ----
       if (users.length < 0) {
-        res.status(404).json({ success: false, error: "No users found" });
+        return res.status(404).json({ success: false, error: "No users found" });
       }
 
       // ---- Positive Response ----
-      res.status(200).json({
+      return res.status(200).json({
         success: true,
         message: "Users fetched successfully",
         users: users,
       });
     } catch (error) {
-      res.status(500).json({
+      return res.status(500).json({
         success: false,
         error: "Internal Server Error",
         details: error.toString(),
